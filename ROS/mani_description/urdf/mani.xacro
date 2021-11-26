@@ -1,0 +1,199 @@
+<?xml version="1.0" ?>
+<robot name="mani" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mani_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mani_description)/urdf/mani.trans" />
+<xacro:include filename="$(find mani_description)/urdf/mani.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.178043845866221e-14 -7.53909257828391e-18 0.005"/>
+    <mass value="0.5918760559363156"/>
+    <inertia ixx="0.000373" ixy="-0.0" ixz="-0.0" iyy="0.000373" iyz="-0.0" izz="0.000736"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shoulder_v4_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="3.8857805861880475e-18 4.440892098500626e-18 0.024999999999999994"/>
+    <mass value="0.16714910219066362"/>
+    <inertia ixx="6.5e-05" ixy="-0.0" ixz="0.0" iyy="6.9e-05" iyz="0.0" izz="6.5e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/shoulder_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/shoulder_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbow_v5_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0037500000000000333 -0.022099910736455917 0.13426308521845787"/>
+    <mass value="0.23938052879452132"/>
+    <inertia ixx="0.00066" ixy="0.0" ixz="0.0" iyy="0.000623" iyz="-9.3e-05" izz="9.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.00375 -0.0 0.003309"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/elbow_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="polystyrene"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.00375 -0.0 0.003309"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/elbow_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fist_v5_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.13000800108359234 -0.009976977034206885 -1.3757847916462396e-09"/>
+    <mass value="0.20096935499800006"/>
+    <inertia ixx="1.4e-05" ixy="1e-06" ixz="-0.0" iyy="0.00095" iyz="-0.0" izz="0.000949"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0 0.043529 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/fist_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0 0.043529 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/fist_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eef_v4_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.010080147597414157 -0.06352941176470586 0.1649999999999993"/>
+    <mass value="0.03189621893711599"/>
+    <inertia ixx="1.2e-05" ixy="0.0" ixz="0.0" iyy="3e-06" iyz="0.0" izz="1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.2 -0.01 -0.0"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/eef_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="surface_matte"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.2 -0.01 -0.0"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/eef_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_claw_v2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.024827923399335428 -4.640201527511545e-05 -7.216449660063518e-16"/>
+    <mass value="0.17536153168700244"/>
+    <inertia ixx="1.6e-05" ixy="0.0" ixz="0.0" iyy="4.9e-05" iyz="0.0" izz="3.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.22 0.031029 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/right_claw_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.22 0.031029 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/right_claw_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_claw_v2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0248279233993354 4.5578485863395635e-05 -7.494005416219807e-16"/>
+    <mass value="0.17536153168700247"/>
+    <inertia ixx="1.6e-05" ixy="-0.0" ixz="0.0" iyy="4.9e-05" iyz="0.0" izz="3.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.22 0.076029 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/left_claw_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.22 0.076029 -0.165"/>
+    <geometry>
+      <mesh filename="package://mani_description/meshes/left_claw_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.01"/>
+  <parent link="base_link"/>
+  <child link="shoulder_v4_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rev2" type="revolute">
+  <origin rpy="0 0 0" xyz="0.00375 0.0 -0.013309"/>
+  <parent link="shoulder_v4_1"/>
+  <child link="elbow_v5_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="100" lower="-3.141593" upper="0.0" velocity="100"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.00375 -0.043529 0.168309"/>
+  <parent link="elbow_v5_1"/>
+  <child link="fist_v5_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rev4" type="continuous">
+  <origin rpy="0 0 0" xyz="0.2 0.053529 -0.165"/>
+  <parent link="fist_v5_1"/>
+  <child link="eef_v4_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Slider5" type="prismatic">
+  <origin rpy="0 0 0" xyz="0.02 -0.041029 0.165"/>
+  <parent link="eef_v4_1"/>
+  <child link="right_claw_v2_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="100" lower="0.0" upper="0.03" velocity="100"/>
+</joint>
+
+<joint name="Slider6" type="prismatic">
+  <origin rpy="0 0 0" xyz="0.02 -0.086029 0.165"/>
+  <parent link="eef_v4_1"/>
+  <child link="left_claw_v2_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="100" lower="-0.03" upper="0.0" velocity="100"/>
+</joint>
+
+</robot>
